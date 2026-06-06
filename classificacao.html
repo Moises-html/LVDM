@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liga de Vôlei DM</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #ff2e63;
+}
+
+table {
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background: #121212;
+}
+
+th {
+    background: #ff2e63;
+    padding: 15px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.time img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ff2e63;
+}
+
+/* TOP 3 destaque */
+.top1 { background: #ffd70022; }
+.top2 { background: #c0c0c022; }
+.top3 { background: #cd7f3222; }
+
+@media (max-width: 600px) {
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🏐 LIGA DE VÔLEI DM</h1>
+
+<table id="tabela">
+<thead>
+<tr>
+    <th>#</th>
+    <th>Time</th>
+    <th>Pontos</th>
+    <th>Vitórias</th>
+    <th>Derrotas</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="si.png">Shadow Invictos</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="oci.png">Calouros Insanos</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="pizzacomleite.png">Pizza com leite</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="alagoanos.jpg">Os Alagoanos</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="manchetec.jpg">manchete clube</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+<tr data-pontos="0" data-vitorias="0">
+    <td></td>
+    <td class="time"><img src="ceifadores.jpg">ceifadores</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+
+
+<!-- Adicione os outros times aqui -->
+
+</tbody>
+</table>
+
+<script>
+function atualizarRanking() {
+    const tabela = document.querySelector("#tabela tbody");
+    const linhas = Array.from(tabela.querySelectorAll("tr"));
+
+    linhas.sort((a, b) => {
+        const pontosA = parseInt(a.dataset.pontos);
+        const pontosB = parseInt(b.dataset.pontos);
+
+        const vitoriasA = parseInt(a.dataset.vitorias);
+        const vitoriasB = parseInt(b.dataset.vitorias);
+
+        // Ordena por pontos
+        if (pontosB !== pontosA) {
+            return pontosB - pontosA;
+        }
+
+        // Desempate por vitórias
+        return vitoriasB - vitoriasA;
+    });
+
+    tabela.innerHTML = "";
+
+    linhas.forEach((linha, index) => {
+        linha.children[0].textContent = index + 1;
+
+        linha.classList.remove("top1", "top2", "top3");
+
+        if (index === 0) linha.classList.add("top1");
+        if (index === 1) linha.classList.add("top2");
+        if (index === 2) linha.classList.add("top3");
+
+        tabela.appendChild(linha);
+    });
+}
+
+// roda automaticamente
+atualizarRanking();
+</script>
+
+</body>
+</html>

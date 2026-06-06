@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confrontos Esportivos Dinâmicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: #0c0f1c;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .match-card {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(145deg, #1f2233, #151828);
+        border-radius: 25px;
+        margin-bottom: 25px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0,255,200,0.2), 0 5px 25px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .match-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(0,255,200,0.1), transparent 70%);
+        pointer-events: none;
+    }
+
+    .match-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 0 40px rgba(0,255,180,0.5), 0 8px 40px rgba(0,255,180,0.3);
+    }
+
+    .teams {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .team {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .team-logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 10px rgba(0,255,180,0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .team:hover .team-logo img {
+        transform: scale(1.1) rotate(-3deg);
+    }
+
+    .team-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 3px rgba(0,255,180,0.5);
+    }
+
+    .vs {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #00ffd5;
+        text-shadow:
+            0 0 10px #00ffd5,
+            0 0 20px #00ffaf,
+            0 0 40px #00ffa0,
+            0 0 60px #00ff88;
+        margin: 0 20px;
+        transition: color 0.5s ease, text-shadow 0.5s ease;
+        animation: vsGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes vsGlow {
+        0% {
+            text-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffaf, 0 0 40px #00ffa0;
+        }
+        50% {
+            text-shadow: 0 0 20px #00fff0, 0 0 40px #00ffcf, 0 0 60px #00ffb0;
+        }
+        100% {
+            text-shadow: 0 0 15px #00ffd5, 0 0 30px #00ffaf, 0 0 50px #00ffa0;
+        }
+    }
+
+    .datetime {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 1rem;
+        color: #94a3b8;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        font-weight: 600;
+        z-index: 2;
+        position: relative;
+    }
+
+    .datetime span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .datetime i {
+        font-style: normal;
+        color: #00bfff;
+    }
+
+    @media(max-width: 600px) {
+        .teams {
+            flex-direction: column;
+            gap: 12px;
+        }
+        .vs {
+            margin: 10px 0;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Exemplo de card de confronto -->
+    <div class="match-card">
+        <div class="teams">
+            <div class="team">
+                <div class="team-logo">
+                    <img src="6343.png" alt="Atlético-MG">
+                </div>
+                <div class="team-name">Atlético-MG</div>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="team">
+                <div class="team-logo">
+                    <img src="6343.png" alt="Flamengo">
+                </div>
+                <div class="team-name">Flamengo</div>
+            </div>
+        </div>
+        <div class="datetime">
+            <span><i>📅</i> 24/05/2024</span>
+            <span><i>⏰</i> 19:00</span>
+        </div>
+    </div>
+
+    <div class="match-card">
+        <div class="teams">
+            <div class="team">
+                <div class="team-logo">
+                    <img src="6343.png" alt="Palmeiras">
+                </div>
+                <div class="team-name">Palmeiras</div>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="team">
+                <div class="team-logo">
+                    <img src="6343.png" alt="São Paulo">
+                </div>
+                <div class="team-name">São Paulo</div>
+            </div>
+        </div>
+        <div class="datetime">
+            <span><i>📅</i> 24/05/2024</span>
+            <span><i>⏰</i> 21:30</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

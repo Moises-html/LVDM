@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Dashboard Oficial — Liga Escolar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* BOTÃO CONFRONTO VERDE NEON */
+.btn-confronto-green {
+  padding: 22px 50px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  background: #0aff99;
+  box-shadow: 0 0 5px #0aff99, 0 0 15px #0aff99, 0 0 30px #00ff88, 0 0 60px #00ff88;
+  animation: greenPulse 1.6s ease-in-out infinite alternate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  letter-spacing: 1px;
+}
+
+/* Hover efeito explosivo */
+.btn-confronto-green:hover {
+  transform: scale(1.15) rotate(-2deg);
+  box-shadow: 0 0 25px #0aff99, 0 0 50px #00ff88, 0 0 75px #00ff88, 0 0 100px #0aff77;
+}
+
+/* Animação de pulso orgânico */
+@keyframes greenPulse {
+  0% {
+    box-shadow: 0 0 5px #0aff99, 0 0 15px #0aff99, 0 0 30px #00ff88, 0 0 60px #00ff88;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px #0affaa, 0 0 40px #00ff99, 0 0 60px #00ff88, 0 0 90px #00ff77;
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 10px #0aff99, 0 0 25px #00ff88, 0 0 50px #00ff88, 0 0 80px #0aff77;
+    transform: scale(1);
+  }
+}
+
+/* Hover ultra chamativo */
+.btn-confronto:hover {
+  transform: scale(1.15) rotate(-1deg);
+  box-shadow: 0 0 20px #57FF33, 0 0 40px #ff66cc, 0 0 60px #ff33aa, 0 0 80px #ff66cc;
+}
+
+/* Neon glow pulsante */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 10px #ff33aa, 0 0 20px #ff66cc, 0 0 30px #33FF4E, 0 0 50px #ff66cc;
+  }
+  50% {
+    box-shadow: 0 0 25px #ff66cc, 0 0 50px #ff99ee, 0 0 75px #ff66cc, 0 0 100px #ff99ee;
+  }
+  100% {
+    box-shadow: 0 0 15px #ff33aa, 0 0 30px #ff66cc, 0 0 45px #ff33aa, 0 0 60px #ff66cc;
+  }
+}
+
+/* Animação de fundo em gradiente */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.btn-classificacao {
+  padding: 20px 40px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  background: #ff0080;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080;
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+.btn-classificacao:hover {
+  transform: scale(1.1);
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 40px #ff0080;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff66c7, 0 0 30px #ff66c7, 0 0 40px #ff66c7, 0 0 60px #ff66c7;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 50px #ff0080;
+  }
+}
+:root{
+    --bg:#050816;
+    --bg2:#0b1026;
+
+    --card:rgba(255,255,255,.05);
+    --card-border:rgba(255,255,255,.08);
+
+    --text:#f8fafc;
+    --muted:#94a3b8;
+
+    --primary:#7c3aed;
+    --secondary:#2563eb;
+    --cyan:#22d3ee;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top left, rgba(124,58,237,.25), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(37,99,235,.20), transparent 25%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    padding:22px 16px 60px;
+
+    position:relative;
+}
+
+body::before{
+
+    content:'';
+
+    position:fixed;
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+
+    background-size:40px 40px;
+
+    pointer-events:none;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.brand-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(24px);
+
+    border-radius:38px;
+
+    padding:45px 35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+
+    margin-bottom:35px;
+}
+
+.brand-header::before{
+
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    90deg,
+    rgba(124,58,237,.18),
+    transparent);
+
+    pointer-events:none;
+}
+
+.brand-left{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    position:relative;
+    z-index:2;
+}
+
+.logo-wrapper{
+
+    width:110px;
+    height:110px;
+
+    border-radius:30px;
+
+    padding:4px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(124,58,237,.7),
+    rgba(37,99,235,.5));
+
+    box-shadow:
+    0 0 30px rgba(124,58,237,.35);
+}
+
+.league-logo{
+
+    width:100%;
+    height:100%;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    background:#0d132e;
+}
+
+.league-logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.brand-info h1{
+
+    font-size:4rem;
+
+    line-height:.9;
+
+    font-weight:800;
+
+    letter-spacing:-3px;
+
+    background:
+    linear-gradient(
+    to right,
+    #ffffff,
+    #ddd6fe,
+    #93c5fd);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.brand-info p{
+
+    margin-top:16px;
+
+    color:var(--muted);
+
+    font-size:1rem;
+
+    line-height:1.4;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+}
+
+.header-actions{
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+
+    position:relative;
+    z-index:2;
+}
+
+.live-badge{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    padding:16px 24px;
+
+    border-radius:999px;
+
+    background:
+    rgba(34,211,238,.08);
+
+    border:
+    1px solid rgba(34,211,238,.2);
+
+    color:#67e8f9;
+
+    font-weight:800;
+
+    font-size:1rem;
+}
+
+.live-badge::before{
+
+    content:'';
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#22d3ee;
+
+    box-shadow:
+    0 0 18px #22d3ee;
+}
+
+.referee-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:18px;
+
+    padding:24px 28px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(124,58,237,.30),
+    rgba(37,99,235,.25));
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:800;
+
+    transition:.35s ease;
+}
+
+.referee-btn:hover{
+    transform:translateY(-5px);
+}
+
+.ref-icon{
+
+    width:62px;
+    height:62px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.7rem;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7c3aed,
+    #2563eb);
+
+    box-shadow:
+    0 0 25px rgba(124,58,237,.5);
+}
+
+/* SCREEN */
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+/* TITLE */
+
+.screen-title{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+}
+
+/* BACK */
+
+.btn-back{
+
+    border:none;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:14px 20px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+/* GRID */
+
+.grid-layout{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+/* CARD */
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--card);
+
+    border:1px solid var(--card-border);
+
+    backdrop-filter:blur(22px);
+
+    border-radius:32px;
+
+    padding:35px 24px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card::before{
+
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+    500px circle at var(--x,0px) var(--y,0px),
+    rgba(124,58,237,.16),
+    transparent 40%);
+
+    pointer-events:none;
+}
+
+.card-icon{
+
+    width:120px;
+    height:120px;
+
+    margin:auto auto 25px;
+
+    border-radius:32px;
+
+    overflow:hidden;
+}
+
+.card-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-player-img{
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin:auto auto 22px;
+
+    border:4px solid rgba(255,255,255,.08);
+
+    display:block;
+}
+
+.card h3{
+
+    font-size:1.8rem;
+
+    text-align:center;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.card p{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:1rem;
+}
+
+/* VERIFIED */
+
+.verified-badge{
+
+    width:26px;
+    height:26px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+    145deg,
+    #ffdc73,
+    #ffb800,
+    #ff8400);
+
+    clip-path:polygon(
+        50% 0%,
+        93% 25%,
+        93% 75%,
+        50% 100%,
+        7% 75%,
+        7% 25%
+    );
+
+    box-shadow:
+    0 0 14px rgba(255,184,0,.8);
+}
+
+.verified-badge::before{
+
+    content:'✓';
+
+    color:white;
+
+    font-size:.75rem;
+
+    font-weight:900;
+}
+
+/* PROFILE */
+
+.profile-container{
+
+    width:100%;
+    max-width:700px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:38px;
+
+    padding:50px 35px;
+
+    backdrop-filter:blur(24px);
+
+    text-align:center;
+}
+
+.profile-avatar{
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:25px;
+}
+
+.profile-name{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+}
+
+.profile-container h2{
+
+    font-size:2.7rem;
+
+    font-weight:800;
+}
+
+.tag-status{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:16px;
+    margin-bottom:38px;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:rgba(16,185,129,.1);
+
+    border:1px solid rgba(16,185,129,.25);
+
+    color:#6ee7b7;
+
+    font-size:.85rem;
+
+    font-weight:700;
+}
+
+.profile-info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+.info-box{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:24px;
+
+    padding:24px;
+}
+
+.info-box label{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:.75rem;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.info-box p{
+
+    font-size:1.35rem;
+
+    font-weight:800;
+}
+
+/* PLAYER BADGE */
+
+.player-badge{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7c3aed,
+    #2563eb);
+
+    color:white;
+
+    font-size:.75rem;
+
+    font-weight:800;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:650px){
+
+    .brand-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:35px 24px;
+    }
+
+    .brand-left{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        width:100%;
+    }
+
+    .brand-info{
+        width:100%;
+    }
+
+    .brand-info h1{
+
+        font-size:3.2rem;
+
+        line-height:.92;
+    }
+
+    .brand-info p{
+
+        font-size:1rem;
+
+        line-height:1.5;
+
+        max-width:100%;
+
+        word-break:break-word;
+    }
+
+    .header-actions{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .live-badge{
+        width:100%;
+    }
+
+    .referee-btn{
+
+        width:100%;
+
+        justify-content:flex-start;
+    }
+
+    .profile-info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="brand-header">
+
+<div class="brand-left">
+
+<div class="logo-wrapper">
+
+<div class="league-logo">
+<img src="lvdm.png">
+</div>
+
+</div>
+
+<div class="brand-info">
+
+<h1>Liga Escolar</h1>
+
+<p>
+SISTEMA OFICIAL DE
+ARBITRAGEM E ELENCOS
+</p>
+
+</div>
+
+</div>
+
+<div class="header-actions">
+  <button class="btn-confronto-green" onclick="window.location.href='desenvolvimento.html'">
+  Confrontos
+</button>
+  <button class="btn-classificacao" onclick="window.location.href='classificacao.html'">
+  Ver Classificação
+</button>
+
+<div class="live-badge">
+Sistema Online
+</div>
+
+<button class="referee-btn"
+onclick="openReferees()">
+
+<div class="ref-icon">
+⚖
+</div>
+
+Arbitragem Oficial
+
+</button>
+
+</div>
+
+</div>
+
+<!-- TIMES -->
+
+<div id="screen-teams"
+class="screen active">
+
+<div class="grid-layout"
+id="teams-grid">
+
+</div>
+
+</div>
+
+<!-- PLAYERS -->
+
+<div id="screen-players"
+class="screen">
+
+<button class="btn-back"
+onclick="changeScreen('screen-teams')">
+
+← Voltar para Times
+
+</button>
+
+<h2 id="team-title"
+class="screen-title"></h2>
+
+<div id="players-grid"
+class="grid-layout"></div>
+
+</div>
+
+<!-- PROFILE -->
+
+<div id="screen-profile"
+class="screen">
+
+<button class="btn-back"
+id="btn-back-to-players">
+
+← Voltar para o Elenco
+
+</button>
+
+<div class="profile-container">
+
+<img id="p-photo"
+class="profile-avatar">
+
+<div class="profile-name">
+
+<h2 id="p-name"></h2>
+
+<div id="p-verified"></div>
+
+</div>
+
+<span class="tag-status">
+Atleta Regularizado
+</span>
+
+<div class="profile-info-grid">
+
+<div class="info-box">
+<label>Posição</label>
+<p id="p-position"></p>
+</div>
+
+<div class="info-box">
+<label>Sala / Turma</label>
+<p id="p-room"></p>
+</div>
+
+<div class="info-box">
+<label>Nº da Camisa</label>
+<p id="p-number"></p>
+</div>
+
+<div class="info-box">
+<label>Idade</label>
+<p id="p-age"></p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- REFEREES -->
+
+<div id="screen-referees"
+class="screen">
+
+<button class="btn-back"
+onclick="changeScreen('screen-teams')">
+
+← Voltar
+
+</button>
+
+<h2 class="screen-title">
+Arbitragem Oficial
+</h2>
+
+<div class="grid-layout"
+id="referees-grid">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* DATABASE */
+
+const database = {
+
+"Shadow I.": {
+
+logo:"si.png",
+
+players:[
+
+{
+
+id:1,
+name:"Moisés Gomes",
+verified:true,
+position:"Central",
+room:"3ºP",
+number:"8",
+age:"17 anos",
+photo:"fb.png"
+},
+
+{
+id:2,
+name:"Flávio José",
+verified:false,
+position:"Oposto",
+room:"3ºP",
+number:"Null",
+age:"16 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:3,
+name:"Gaby",
+verified:false,
+position:"Levantador",
+room:"1°B",
+number:"Null",
+age:"15 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:2,
+name:"Flávio José",
+verified:false,
+position:"Central",
+room:"3ºP",
+number:"Null",
+age:"16 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:2,
+name:"Nadson Samuel",
+verified:false,
+position:"Ponteiro",
+room:"3ºP",
+number:"777",
+age:"16 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:2,
+name:"Fábio",
+verified:false,
+position:"Oposto",
+room:"3ºM",
+number:"Null",
+age:"17 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:2,
+name:"Maria Paula",
+verified:false,
+position:"ponteiro",
+room:"2ºG",
+number:"Null",
+age:"16 anos",
+photo:"alpha-p2.jpg"
+},
+{
+id:2,
+name:"Yasmim",
+verified:false,
+position:"ponteiro",
+room:"2ºI",
+number:"Null",
+age:"15 anos",
+photo:"alpha-p2.jpg"
+}
+
+]
+
+},
+
+"Os Alagoanos": {
+
+logo:"alagoanos.jpg",
+
+players:[
+
+{
+id:10,
+name:"Heriberto De Brito",
+verified:false,
+position:"Null",
+room:"3°P",
+number:"Null",
+age:"17 anos",
+photo:"dragons1.jpg"
+},
+
+{
+id:11,
+name:"Carlos Gabriel",
+verified:false,
+position:"Null",
+room:"2ºJ",
+number:"Null",
+age:"16 anos",
+photo:"dragons2.jpg"
+},
+
+{
+id:12,
+name:"Gabriel Victor",
+verified:false,
+position:"Null",
+room:"2ºJ",
+number:"Null",
+age:"15 anos",
+photo:"dragons3.jpg"
+},
+{
+id:12,
+name:"Pedro Emanuel",
+verified:false,
+position:"Null",
+room:"2ºJ",
+number:"Null",
+age:"Null",
+photo:"dragons3.jpg"
+},
+{
+id:12,
+name:"Luiz Miguel",
+verified:false,
+position:"Null",
+room:"2ºJ",
+number:"Null",
+age:"Null",
+photo:"dragons3.jpg"
+},
+{
+id:12,
+name:"José Alexandre",
+verified:false,
+position:"Null",
+room:"2ºJ",
+number:"Null",
+age:"Null",
+photo:"dragons3.jpg"
+},
+]
+
+},
+
+"Pizza com leite.": {
+
+logo:"pizzacomleite.png",
+
+players:[
+
+{
+id:20,
+name:"Marcus Filho",
+verified:false,
+position:"Ponteiro",
+room:"3ºP",
+number:"Null",
+age:"17 anos",
+photo:"shadow1.jpg"
+},
+
+{
+id:21,
+name:"Lucas Emanuel",
+verified:false,
+position:"Líbero",
+room:"3°P",
+number:"Null",
+age:"17 anos",
+photo:"shadow2.jpg"
+},
+
+{
+id:22,
+name:"Fernando de lima",
+verified:false,
+position:"Central",
+room:"3°P",
+number:"null",
+age:"17 anos",
+photo:"shadow3.jpg"
+},
+{
+id:22,
+name:"Gabriel Diniz",
+verified:false,
+position:"Central",
+room:"3°P",
+number:"null",
+age:"17 anos",
+photo:"shadow3.jpg"
+},
+{
+id:22,
+name:"Matheus ferreira",
+verified:false,
+position:"Central",
+room:"3°P",
+number:"null",
+age:"17 anos",
+photo:"shadow3.jpg"
+},
+{
+id:22,
+name:"Malisson Junior",
+verified:false,
+position:"Ponteiro",
+room:"3°P",
+number:"null",
+age:"17 anos",
+photo:"shadow3.jpg"
+},
+]
+
+},
+
+"Os calouros insanos": {
+
+logo:"oci.png",
+
+players:[
+
+{
+id:30,
+name:"João Lucas",
+verified:true,
+position:"Levantador",
+room:"1°E",
+number:"Null",
+age:"15 anos",
+photo:"titans1.jpg"
+},
+
+{
+id:31,
+name:"Jean",
+verified:false,
+position:"Ponteiro",
+room:"1ºE",
+number:"null",
+age:"17 anos",
+photo:"titans2.jpg"
+},
+
+{
+id:32,
+name:"Gustavo",
+verified:true,
+position:"Oposto",
+room:"1ºE",
+number:"Null",
+age:"15 anos",
+photo:"titans3.jpg"
+},
+{
+id:32,
+name:"Arthur",
+verified:false,
+position:"Central",
+room:"1ºE",
+number:"Null",
+age:"15 anos",
+photo:"titans3.jpg"
+},
+{
+id:32,
+name:"Jan",
+verified:true,
+position:"Ponteiro",
+room:"3°N",
+number:"Null",
+age:"17 anos",
+photo:"titans3.jpg"
+},
+{
+id:32,
+name:"Victor",
+verified:false,
+position:"Levantador",
+room:"1ºE",
+number:"Null",
+age:"15 anos",
+photo:"titans3.jpg"
+},
+
+]
+
+},
+
+"Ceifadores": {
+logo:"ceifadores.jpg",
+
+players:[
+
+{
+id:40,
+name:"Vinycius Da silva",
+verified:false,
+position:"Null",
+room:"1°D",
+number:"Null",
+age:"16 anos",
+photo:"phantom1.jpg"
+},
+
+{
+id:41,
+name:"Manoel Fagner",
+verified:false,
+position:"Null",
+room:"1°D",
+number:"Null",
+age:"Null",
+photo:"phantom2.jpg"
+},
+{
+id:41,
+name:"FELIX",
+verified:false,
+position:"Null",
+room:"1°D",
+number:"Null",
+age:"Null",
+photo:"phantom2.jpg"
+},
+{
+id:41,
+name:"Samuel",
+verified:false,
+position:"Null",
+room:"1°D",
+number:"Null",
+age:"Null",
+photo:"phantom2.jpg"
+},
+{
+id:41,
+name:"Isaac pontes",
+verified:false,
+position:"Null",
+room:"3°K",
+number:"Null",
+age:"Null",
+photo:"phantom2.jpg"
+},
+{
+id:41,
+name:"Rielison da silva",
+verified:false,
+position:"Null",
+room:"2°I",
+number:"Null",
+age:"Null",
+photo:"phantom2.jpg"
+}
+
+]
+
+},
+
+"Manchete Clube": {
+
+logo:"manchetec.jpg",
+
+players:[
+
+{
+id:50,
+name:"Marcos Eduardo",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"marcos.jpg"
+},
+{
+id:50,
+name:"Gustavo Pereira",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"gustavo.jpg"
+},
+{
+id:50,
+name:"João Pedro",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"legend1.jpg"
+},
+{
+id:50,
+name:"Alexandro",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"legend1.jpg"
+},
+{
+id:50,
+name:"Alice",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"legend1.jpg"
+},
+{
+id:50,
+name:"Izadora",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"legend1.jpg"
+},
+{
+id:50,
+name:"Eloisy Evelyn",
+verified:false,
+position:"Null",
+room:"1ºB",
+number:"Null",
+age:"Null",
+photo:"legend1.jpg"
+}
+
+]
+
+},
+
+"As meninas super poderosas e cia": {
+
+logo:"asmeninas.jpg",
+
+players:[
+
+{
+id:60,
+name:"Jeovanna",
+verified:false,
+position:"Null",
+room:"1°A",
+number:"null",
+age:"null",
+photo:"infinity1.jpg"
+},
+
+{
+id:61,
+name:"Yelena",
+verified:false,
+position:"Central",
+room:"1ºA",
+number:"Null",
+age:"Null",
+photo:"infinity2.jpg"
+},
+
+{
+id:62,
+name:"Livia Victoria",
+verified:false,
+position:"Levantador",
+room:"3ºP",
+number:"null",
+age:"",
+photo:"infinity3.jpg"
+},
+{
+id:62,
+name:"Ester",
+verified:false,
+position:"Libero",
+room:"3ºK",
+number:"null",
+age:"null",
+photo:"infinity3.jpg"
+},
+{
+id:62,
+name:"Yan",
+verified:false,
+position:"Levantador",
+room:"1°D",
+number:"null",
+age:"null",
+photo:"infinity3.jpg"
+},
+{
+id:62,
+name:"Vitor",
+verified:false,
+position:"ponteiro",
+room:"1°D",
+number:"null",
+age:"null",
+photo:"infinity3.jpg"
+}
+
+]
+
+},
+
+"Time pendente 2": {
+
+logo:"vortex.png",
+
+players:[
+
+{
+id:70,
+name:"Leonardo Costa",
+verified:true,
+position:"Oposto",
+room:"3ºO",
+number:"17",
+age:"17 anos",
+photo:"vortex1.jpg"
+},
+
+{
+id:71,
+name:"Diego Martins",
+verified:false,
+position:"Líbero",
+room:"2ºB",
+number:"5",
+age:"16 anos",
+photo:"vortex2.jpg"
+},
+
+{
+id:72,
+name:"Igor Henrique",
+verified:false,
+position:"Ponteiro",
+room:"1ºA",
+number:"2",
+age:"15 anos",
+photo:"vortex3.jpg"
+}
+
+]
+
+},
+
+"Time pendente 3": {
+
+logo:"storm.png",
+
+players:[
+
+{
+id:80,
+name:"Nathan Oliveira",
+verified:true,
+position:"Central",
+room:"3ºA",
+number:"19",
+age:"17 anos",
+photo:"storm1.jpg"
+},
+
+{
+id:81,
+name:"Yuri Gomes",
+verified:false,
+position:"Levantador",
+room:"2ºC",
+number:"6",
+age:"16 anos",
+photo:"storm2.jpg"
+},
+
+{
+id:82,
+name:"Kevin Santos",
+verified:false,
+position:"Ponteiro",
+room:"1ºB",
+number:"11",
+age:"15 anos",
+photo:"storm3.jpg"
+}
+
+]
+
+},
+
+"Time pendente 4": {
+
+logo:"nebula.png",
+
+players:[
+
+{
+id:90,
+name:"Alex Pereira",
+verified:true,
+position:"Líbero",
+room:"3ºB",
+number:"1",
+age:"17 anos",
+photo:"nebula1.jpg"
+},
+
+{
+id:91,
+name:"Cristian Lima",
+verified:false,
+position:"Central",
+room:"2ºA",
+number:"16",
+age:"16 anos",
+photo:"nebula2.jpg"
+},
+
+{
+id:92,
+name:"Fernando Rocha",
+verified:false,
+position:"Oposto",
+room:"1ºC",
+number:"7",
+age:"15 anos",
+photo:"nebula3.jpg"
+}
+
+]
+
+}
+
+};
+
+/* REFEREES */
+
+const referees = [
+
+{
+name:"Dyego Reis",
+role:"Árbitro Principal",
+photo:"ref1.jpg"
+},
+
+{
+name:"Klécio de assis",
+role:"2ª Árbitro",
+photo:"ref2.jpg"
+}
+
+];
+
+let currentTeam = "";
+
+/* RENDER TEAMS */
+
+function renderTeams(){
+
+const teamsGrid =
+document.getElementById("teams-grid");
+
+teamsGrid.innerHTML = "";
+
+Object.keys(database).forEach(teamName=>{
+
+const teamData = database[teamName];
+
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+card.onclick = ()=>openTeam(teamName);
+
+card.innerHTML = `
+
+<div class="card-icon">
+<img src="${teamData.logo}">
+</div>
+
+<h3>${teamName}</h3>
+
+<p>
+${teamData.players.length}
+Jogadores Ativos
+</p>
+
+`;
+
+teamsGrid.appendChild(card);
+
+});
+
+applyGlow();
+
+}
+
+/* OPEN TEAM */
+
+function openTeam(teamName){
+
+currentTeam = teamName;
+
+document.getElementById("team-title")
+.innerText = `Elenco — ${teamName}`;
+
+const grid =
+document.getElementById("players-grid");
+
+grid.innerHTML = "";
+
+const players =
+database[teamName]?.players || [];
+
+players.forEach(player=>{
+
+const verifiedHTML =
+player.verified
+? `<span class="verified-badge"></span>`
+: "";
+
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+card.onclick = ()=>openPlayer(player);
+
+card.innerHTML = `
+
+<span class="player-badge">
+Nº ${player.number}
+</span>
+
+<img src="${player.photo}"
+class="card-player-img">
+
+<h3>
+${player.name}
+${verifiedHTML}
+</h3>
+
+<p>
+${player.position}
+•
+${player.room}
+</p>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+applyGlow();
+
+changeScreen("screen-players");
+
+}
+
+/* OPEN PLAYER */
+
+function openPlayer(player){
+
+document.getElementById("p-name")
+.innerText = player.name;
+
+document.getElementById("p-position")
+.innerText = player.position;
+
+document.getElementById("p-room")
+.innerText = player.room;
+
+document.getElementById("p-number")
+.innerText = player.number;
+
+document.getElementById("p-age")
+.innerText = player.age;
+
+document.getElementById("p-photo")
+.src = player.photo;
+
+document.getElementById("p-verified")
+.innerHTML =
+player.verified
+? `<span class="verified-badge"></span>`
+: "";
+
+document.getElementById(
+"btn-back-to-players"
+).onclick =
+()=>openTeam(currentTeam);
+
+changeScreen("screen-profile");
+
+}
+
+/* REFEREES */
+
+function openReferees(){
+
+const grid =
+document.getElementById("referees-grid");
+
+grid.innerHTML = "";
+
+referees.forEach(ref=>{
+
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+card.innerHTML = `
+
+<img src="${ref.photo}"
+class="card-player-img">
+
+<h3>${ref.name}</h3>
+
+<p>${ref.role}</p>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+applyGlow();
+
+changeScreen("screen-referees");
+
+}
+
+/* SCREEN */
+
+function changeScreen(screenId){
+
+document.querySelectorAll(".screen")
+.forEach(screen=>{
+
+screen.classList.remove("active");
+
+});
+
+document.getElementById(screenId)
+.classList.add("active");
+
+}
+
+/* GLOW */
+
+function applyGlow(){
+
+document.querySelectorAll(".card")
+.forEach(card=>{
+
+card.onmousemove = function(e){
+
+const rect =
+card.getBoundingClientRect();
+
+const x =
+e.clientX - rect.left;
+
+const y =
+e.clientY - rect.top;
+
+card.style.setProperty(
+'--x',
+`${x}px`
+);
+
+card.style.setProperty(
+'--y',
+`${y}px`
+);
+
+};
+
+});
+
+}
+
+document.addEventListener(
+"DOMContentLoaded",
+renderTeams
+);
+
+</script>
+
+</body>
+</html>

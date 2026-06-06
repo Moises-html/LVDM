@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página em Desenvolvimento - Turbo Leve</title>
+<style>
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: #0a001f;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    perspective: 1000px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Canvas ocupa toda a tela */
+  #particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  /* Container principal */
+  .container {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Título neon 3D */
+  h1 {
+    font-size: 4rem;
+    color: #d9b3ff;
+    text-shadow:
+      0 0 5px #d9b3ff,
+      0 0 10px #b366ff,
+      0 0 20px #a64ca6,
+      0 0 40px #8e2de2,
+      0 0 80px #4a00e0;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes neonGlow {
+    from { text-shadow: 0 0 5px #d9b3ff, 0 0 10px #b366ff, 0 0 20px #a64ca6, 0 0 40px #8e2de2, 0 0 80px #4a00e0; }
+    to { text-shadow: 0 0 10px #e6ccff, 0 0 20px #b366cc, 0 0 40px #a64ca6, 0 0 60px #8e2de2, 0 0 100px #4a00e0; }
+  }
+
+  p {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #ccc;
+    text-shadow: 0 0 5px #b366ff;
+  }
+
+  /* Botões neon 3D */
+  .btn {
+    margin-top: 40px;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #b366ff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    margin: 10px;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: -100%;
+    left: -10%;
+    background: rgba(255,255,255,0.15);
+    transform: skewY(-25deg);
+    transition: all 0.5s ease;
+  }
+
+  .btn:hover::before {
+    top: 200%;
+  }
+
+  .btn:hover {
+    box-shadow: 0 0 40px #8e2de2, 0 0 60px #4a00e0, 0 0 100px #b366ff;
+    transform: scale(1.05) rotateX(5deg);
+  }
+
+  .btn-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    p { font-size: 1.1rem; }
+    .btn { padding: 12px 35px; font-size: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    p { font-size: 1rem; }
+    .btn { padding: 10px 25px; font-size: 0.9rem; }
+  }
+
+</style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="container">
+    <h1>Página em Desenvolvimento</h1>
+    <p>Estamos criando algo épico para você!</p>
+    <div class="btn-container">
+      <button class="btn" onclick="window.location.href='index.html'">Voltar</button>
+      <button class="btn">Fique Ligado!</button>
+    </div>
+  </div>
+
+  <script>
+    // Canvas e partículas
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Criar partículas
+    const particleCount = 30; // menor número para performance
+    const particles = [];
+    for(let i=0; i<particleCount; i++){
+      particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*4 + 1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+      });
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(let p of particles){
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if(p.x<0 || p.x>canvas.width) p.dx*=-1;
+        if(p.y<0 || p.y>canvas.height) p.dy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(179,102,255,0.7)';
+        ctx.shadowColor = '#b366ff';
+        ctx.shadowBlur = 5;
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

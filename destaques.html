@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destaques da Partida - All Black</title>
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #0a0a0a; /* preto fosco */
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .card {
+        background-color: #1a1a1a; /* card matte */
+        border-radius: 20px;
+        text-align: center;
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid #333;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 20px rgba(128,0,255,0.5);
+    }
+
+    .card img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #5500ff; /* borda roxa */
+        margin-bottom: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(128,0,255,0.7);
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        color: #fff;
+    }
+
+    .card p {
+        font-size: 1rem;
+        color: #ccc;
+    }
+
+    /* Destaques com leve tonalidade */
+    .levantador {
+        border-left: 5px solid #8b00ff; /* roxo fosco */
+    }
+
+    .atacante {
+        border-left: 5px solid #ff0055; /* rosa escuro */
+    }
+
+    .defensor {
+        border-left: 5px solid #00ffcc; /* verde neon escuro */
+    }
+
+    /* Responsividade */
+    @media(max-width: 768px) {
+        .card img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Melhor Levantador -->
+    <div class="card levantador">
+        <img src="caminho-da-foto-levantador.jpg" alt="Jogador Levantador">
+        <h2>Nome do Levantador</h2>
+        <p>Melhor Levantador da Partida</p>
+    </div>
+
+    <!-- Melhor Atacante -->
+    <div class="card atacante">
+        <img src="si.png" alt="Jogador Atacante">
+        <h2>Nome do Atacante</h2>
+        <p>Melhor Atacante da Partida</p>
+    </div>
+
+    <!-- Melhor Defensor -->
+    <div class="card defensor">
+        <img src="caminho-da-foto-defensor.jpg" alt="Jogador Defensor">
+        <h2>Nome do Defensor</h2>
+        <p>Melhor Defensor da Partida</p>
+    </div>
+</div>
+
+</body>
+</html>
